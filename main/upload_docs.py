@@ -1,4 +1,5 @@
 from pinecone import Pinecone
+from pinecone_index import get_index
 from sentence_transformers import SentenceTransformer
 from dotenv import load_dotenv
 import os
@@ -11,7 +12,7 @@ api_key = os.getenv('PINECONE_API_KEY')
 client = Pinecone(api_key=api_key)
 
 # Read text data from file
-with open('C:/Users/krant/OneDrive/Documents/revature p2 project/GenAI_chatbot/assets/service.txt', 'r') as fp:
+with open('data\data6.txt', 'r',encoding='utf-8') as fp:
     lines = fp.readlines()
 
 # Initialize Sentence Transformer model
@@ -24,7 +25,7 @@ embeddings = [embeddings_model.encode(line) for line in lines]
 vectors = [{'id': str(i), 'values': embeddings[i], 'metadata': {'text': lines[i]}} for i in range(len(lines))]
 
 # Create or update Pinecone index
-index = client.Index('index1')
+index = get_index('index1')
 
 try:
     index.upsert(

@@ -1,3 +1,5 @@
 venv
 .env
+azaan.json
+gopika.json
 __pycache__
