@@ -3,7 +3,7 @@ from presidio import anonymize
 from  bs_agents.general_agent import agent_execution as general
 from  bs_agents.sales_agent import agent_execution as sales
 from  bs_agents.service_agent import agent_execution as service
-from classifier import classifier_gopika, classifier_azaan
+from classifier import classify_text
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -40,8 +40,7 @@ if user_input:
   })
 
   # call classifier model to get agent for query
-  # category = classifier_gopika(user_input)
-  category = classifier_azaan(user_input)
+  category = classify_text(user_input)
   
   # make calls based on agent
   if category == 'service':
