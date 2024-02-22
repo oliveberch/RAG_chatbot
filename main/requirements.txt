@@ -6,18 +6,20 @@ sentence-transformers
 langchain_experimental
 openai
 pypdf
-duckduckgo-search
 langchain_openai
 PyPDF2
 google-cloud-aiplatform
 google-cloud-storage
 oauth2client
 langchain-pinecone
-apache-airflow
-apache-airflow-providers-google
 presidio-analyzer
 presidio-anonymizer
 mysqlclient
-sqlalchemy
+sqlalchemy==2.0.27
 psycopg2-binary
 pkgconfig
+
+
+# duckduckgo-search
+# apache-airflow
+# apache-airflow-providers-google
