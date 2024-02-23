@@ -40,13 +40,13 @@ if user_input:
   })
 
   # call classifier model to get agent for query
-  category = classify_text(user_input)
+  category = classify_text(message)
   
   # make calls based on agent
   if category == 'service':
     # service
     agent = service
-    agent_response = agent.invoke({'input':user_input})
+    agent_response = agent.invoke({'input':message})
     st.session_state['chat'].append({
       "content": agent_response['output'],
       "role": "ai"
@@ -54,7 +54,7 @@ if user_input:
   elif category  == 'sales':
     # sales
     agent = sales
-    agent_response = agent.invoke({'input':user_input})
+    agent_response = agent.invoke({'input':message})
     st.session_state['chat'].append({
       "content": agent_response['output'],
       "role": "ai"
@@ -62,7 +62,7 @@ if user_input:
   else:
     # general
     agent = general
-    agent_response = agent.invoke({'input':user_input})
+    agent_response = agent.invoke({'input':message})
     st.session_state['chat'].append({
       "content": agent_response['output'],
       "role": "ai"
